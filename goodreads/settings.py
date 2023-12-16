@@ -16,7 +16,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-
+    'api',
     'book',
     'psycopg2',
     'decouple',
@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     "crispy_bootstrap5",
     'bootstrap5',
     'celery',
+    'rest_framework',
 
 ]
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
@@ -62,7 +63,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'goodreads.wsgi.application'
-
 
 DATABASES = {
     'default': {
@@ -102,7 +102,6 @@ AUTH_USER_MODEL = 'users.CustomUser'
 MEDIA_ROOT = "media-files"
 MEDIA_URL = '/media/'
 
-
 STATIC_URL = '/static/'
 # Add this below line in settings.py
 STATICFILES_DIRS = [
@@ -111,7 +110,6 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'rafiqovbulqosim@gmail.com'
@@ -119,3 +117,8 @@ EMAIL_HOST_PASSWORD = 'ijcj kvhu dhmt nfsp'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 2
+}
